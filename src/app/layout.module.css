@@ -9,23 +9,3 @@
     padding: 24px;
   }
 }
-
-.chef {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-right: 40px;
-  border-right: 1px solid var(--color-border);
-  margin-right: 40px;
-}
-
-.chefIcon {
-  display: block;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-}
-
-.chefName {
-  margin-left: 16px;
-}
