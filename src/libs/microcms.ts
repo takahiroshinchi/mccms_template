@@ -13,25 +13,25 @@ export type Tag = {
 } & MicroCMSContentId &
   MicroCMSDate;
 
-// ライターの型定義
-export type Writer = {
+// シェフの型定義
+export type Chef = {
   name: string;
   profile: string;
   image?: MicroCMSImage;
 } & MicroCMSContentId &
   MicroCMSDate;
 
-// ブログの型定義
-export type Blog = {
+// レシピの型定義
+export type Recipe = {
   title: string;
   description: string;
   content: string;
   thumbnail?: MicroCMSImage;
   tags?: Tag[];
-  writer?: Writer;
+  chef?: Chef;
 };
 
-export type Article = Blog & MicroCMSContentId & MicroCMSDate;
+export type Article = Recipe & MicroCMSContentId & MicroCMSDate;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
   throw new Error('MICROCMS_SERVICE_DOMAIN is required');
@@ -50,8 +50,8 @@ export const client = createClient({
 // ブログ一覧を取得
 export const getList = async (queries?: MicroCMSQueries) => {
   const listData = await client
-    .getList<Blog>({
-      endpoint: 'blog',
+    .getList<Recipe>({
+      endpoint: 'recipe',
       queries,
     })
     .catch(notFound);
@@ -61,8 +61,8 @@ export const getList = async (queries?: MicroCMSQueries) => {
 // ブログの詳細を取得
 export const getDetail = async (contentId: string, queries?: MicroCMSQueries) => {
   const detailData = await client
-    .getListDetail<Blog>({
-      endpoint: 'blog',
+    .getListDetail<Recipe>({
+      endpoint: 'recipe',
       contentId,
       queries,
     })
@@ -90,6 +90,30 @@ export const getTag = async (contentId: string, queries?: MicroCMSQueries) => {
       endpoint: 'tags',
       contentId,
       queries,
+    })
+    .catch(notFound);
+
+  return detailData;
+};
+
+// シェフの一覧を取得
+export const getChefList = async (queries?: MicroCMSQueries) => {
+  const listData = await client
+    .getList<Chef>({
+      endpoint: 'chef',
+      queries,
+    })
+    .catch(notFound);
+
+  return listData;
+};
+
+// シェフの詳細を取得
+export const getChef = async (contentId: string) => {
+  const detailData = await client
+    .getListDetail<Chef>({
+      endpoint: 'chef',
+      contentId,
     })
     .catch(notFound);
 

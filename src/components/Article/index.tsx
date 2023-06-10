@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { formatRichText } from '@/libs/utils';
 import { type Article } from '@/libs/microcms';
 import PublishedDate from '../Date';
@@ -15,22 +16,24 @@ export default function Article({ data }: Props) {
       <TagList tags={data.tags} />
       <p className={styles.description}>{data.description}</p>
       <div className={styles.meta}>
-        {data.writer && (
-          <div className={styles.writer}>
-            <picture>
-              <source
-                type="image/webp"
-                srcSet={`${data.writer?.image?.url}?fm=webp&fit=crop&w=48&h=48 1x, ${data.writer?.image?.url}?fm=webp&fit=crop&w=48&h=48&dpr=2 2x`}
-              />
-              <img
-                src={data.writer?.image?.url}
-                alt=""
-                className={styles.writerIcon}
-                width={data.writer?.image?.width}
-                height={data.writer?.image?.height}
-              />
-            </picture>
-            <span className={styles.writerName}>{data.writer?.name}</span>
+        {data.chef && (
+          <div>
+            <Link href={`/chefs/${data.chef?.id}`} className={styles.chef}>
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${data.chef?.image?.url}?fm=webp&fit=crop&w=48&h=48 1x, ${data.chef?.image?.url}?fm=webp&fit=crop&w=48&h=48&dpr=2 2x`}
+                />
+                <img
+                  src={data.chef?.image?.url}
+                  alt=""
+                  className={styles.chefIcon}
+                  width={data.chef?.image?.width}
+                  height={data.chef?.image?.height}
+                />
+              </picture>
+              <span className={styles.chefName}>{data.chef?.name}</span>
+            </Link>
           </div>
         )}
         <PublishedDate date={data.publishedAt || data.createdAt} />
