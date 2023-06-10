@@ -16,12 +16,17 @@ export default async function Page({ params }: Props) {
       <picture>
         <source
           type="image/webp"
-          srcSet={`${chef.image?.url}?fm=webp&fit=crop&w=48&h=48 1x, ${chef.image?.url}?fm=webp&fit=crop&w=48&h=48&dpr=2 2x`}
+          media="(max-width: 640px)"
+          srcSet={`${chef.image?.url}?fm=webp&w=414 1x, ${chef.image?.url}?fm=webp&w=414&dpr=2 2x`}
+        />
+        <source
+          type="image/webp"
+          srcSet={`${chef.image?.url}?fm=webp&fit=crop&w=240&h=126 1x, ${chef.image?.url}?fm=webp&fit=crop&w=240&h=126&dpr=2 2x`}
         />
         <img
           src={chef.image?.url}
           alt=""
-          className="aspect-video w-full"
+          className="border-4 border-double border-gray-300"
           width={chef.image?.width}
           height={chef.image?.height}
         />
