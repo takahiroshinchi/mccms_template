@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { getChef, getList } from '@/libs/microcms';
 import { LIMIT } from '@/constants';
+import { getChef, getList } from '@/libs/microcms';
+import Link from 'next/link';
 
 type Props = {
   params: {

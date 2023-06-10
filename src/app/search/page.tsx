@@ -1,6 +1,6 @@
-import { getList } from '@/libs/microcms';
 import ArticleList from '@/components/ArticleList';
 import Pagination from '@/components/Pagination';
+import { getList } from '@/libs/microcms';
 
 type Props = {
   searchParams: {

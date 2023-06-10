@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import { formatDate } from '@/libs/utils';
-import styles from './index.module.css';
 import { IconClock } from '@tabler/icons-react';
+import Image from 'next/image';
+import styles from './index.module.css';
 
 type Props = {
   date: string;

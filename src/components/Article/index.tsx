@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import { formatRichText } from '@/libs/utils';
 import { type Article } from '@/libs/microcms';
+import { formatRichText } from '@/libs/utils';
+import Link from 'next/link';
 import PublishedDate from '../Date';
-import styles from './index.module.css';
 import TagList from '../TagList';
+import styles from './index.module.css';
 
 type Props = {
   data: Article;

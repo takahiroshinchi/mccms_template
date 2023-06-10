@@ -1,6 +1,6 @@
-import { Tag } from '@/libs/microcms';
-import TagList from '@/components/TagList';
 import SearchField from '@/components/SearchField';
+import TagList from '@/components/TagList';
+import { Tag } from '@/libs/microcms';
 import styles from './index.module.css';
 
 type Props = {

@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { getList, getChefList } from '@/libs/microcms';
-import { LIMIT } from '@/constants';
-import Pagination from '@/components/Pagination';
 import ArticleList from '@/components/ArticleList';
+import Pagination from '@/components/Pagination';
+import { LIMIT } from '@/constants';
+import { getChefList, getList } from '@/libs/microcms';
+import Link from 'next/link';
 import styles from './index.module.css';
 
 export const revalidate = 60;

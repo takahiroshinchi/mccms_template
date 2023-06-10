@@ -1,6 +1,6 @@
+import { LIMIT } from '@/constants';
 import Link from 'next/link';
 import styles from './index.module.css';
-import { LIMIT } from '@/constants';
 
 type Props = {
   totalCount: number;

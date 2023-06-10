@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import { Article } from '@/libs/microcms';
-import styles from './index.module.css';
-import TagList from '../TagList';
+import Image from 'next/image';
+import Link from 'next/link';
 import PublishedDate from '../Date';
+import TagList from '../TagList';
+import styles from './index.module.css';
 
 type Props = {
   article: Article;
