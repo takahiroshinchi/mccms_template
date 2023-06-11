@@ -45,7 +45,7 @@ export default async function Page({ params }: Props) {
       <div className="flex gap-4">
         {recipes.contents.map((recipe) => (
           <div key={recipe.id}>
-            <Link href={`/articles/${recipe.id}`} className="block">
+            <Link href={`/recipes/${recipe.id}`} className="block">
               <picture>
                 <source
                   type="image/webp"
